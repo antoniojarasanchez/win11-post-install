@@ -1,0 +1,32 @@
+[
+    {
+        "id": "jupyter",
+        "name": "Jupyter",
+        "description": "Notebooks interactivos de Python (requiere Python previo)",
+        "requires": "python",
+        "install": "python -m pip install jupyter",
+        "check": "python -c \"import jupyter\""
+    },
+    {
+        "id": "texlive",
+        "name": "TeX Live",
+        "description": "Distribucion de LaTeX (incluye Perl minimo; sin prerequisitos)",
+        "choices": {
+            "label": "Esquema",
+            "options": ["medium", "full", "small", "basic", "minimal"]
+        },
+        "install": "$zip = \"$env:TEMP\\install-tl.zip\"; $dir = \"$env:TEMP\\install-tl-unpacked\"; Invoke-WebRequest -Uri 'https://mirror.ctan.org/systems/texlive/tlnet/install-tl.zip' -OutFile $zip -UseBasicParsing; if (Test-Path $dir) { Remove-Item -Recurse -Force $dir }; Expand-Archive -Path $zip -DestinationPath $dir -Force; $bat = Get-ChildItem -LiteralPath $dir -Filter 'install-tl-windows.bat' -Recurse | Select-Object -First 1; & $bat.FullName -no-gui -no-interaction -scheme scheme-{choice} -texdir 'C:/texlive/2026'",
+        "check": "tlmgr --version"
+    },
+    {
+        "id": "git-config",
+        "name": "Git: configurar identidad global",
+        "description": "Establece user.name y user.email en git config --global (requiere Git)",
+        "requires": "git",
+        "inputs": [
+            { "var": "gitname", "prompt": "Nombre para git (user.name)" },
+            { "var": "gitemail", "prompt": "Email para git (user.email)" }
+        ],
+        "install": "git config --global user.name \"$gitname\"; git config --global user.email \"$gitemail\""
+    }
+]
