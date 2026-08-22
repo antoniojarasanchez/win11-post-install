@@ -185,9 +185,16 @@ empty, the extra is skipped. Example (Git identity configuration):
 
 ## TODOs
 
-- Improve menu navigation: it works but has rough edges that could be
-  polished.
-- Auto-install and configure Whisper (specific to my setup, not universal).
+- Refine menu navigation: functionality is in place, but the user experience
+  has rough edges that need polishing.
+- For extras:
+  - Whisper automatic setup and configuration (specific to my setup, not universal).
+  - Toggle Windows animations and transparency effects.
+  - Toggle Dark mode
+  - Enable performance power plan.
+  - Prevent the display from turning off automatically.
+  - Show hidden files in File Explorer.
+  - Show file extensions in File Explorer.
 
 ## Notes
 
